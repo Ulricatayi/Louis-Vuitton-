@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Vuitton</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        h1, h2, h3, .lv-serif { font-family: 'Playfair Display', serif; }
+
+        .nav-link {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #000;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after { width: 100%; }
+
+        .hero-zoom {
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .product-img-container {
+            background-color: #f6f6f6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img {
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-[1800px] mx-auto px-6 lg:px-12 h-20 flex justify-between items-center">
+            <div class="hidden lg:flex items-center space-x-10">
+                <button onclick="navigateTo('home')" class="nav-link">Accueil</button>
+                <button onclick="navigateTo('femme')" class="nav-link">Femme</button>
+                <button onclick="navigateTo('homme')" class="nav-link">Homme</button>
+            </div>
+
+            <div class="cursor-pointer" onclick="navigateTo('home')">
+                <h1 class="text-2xl md:text-3xl tracking-[0.4em] font-bold">LOUIS VUITTON</h1>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <i class="fa-solid fa-magnifying-glass cursor-pointer hidden md:block"></i>
+                <i class="fa-regular fa-heart cursor-pointer"></i>
+                <div class="relative cursor-pointer">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="absolute -top-2 -right-2 bg-black text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Zone de Contenu -->
+    <div id="app-content" class="pt-20"></div>
+
+    <!-- Pied de page -->
+    <footer class="bg-[#111] text-white pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 border-b border-white/10 pb-16">
+            <div>
+                <h4 class="uppercase tracking-widest text-xs font-bold mb-8">Service Client</h4>
+                <ul class="space-y-4 text-sm text-gray-400 font-light">
+                    <li class="hover:text-white cursor-pointer transition">Contactez-nous</li>
+                    <li class="hover:text-white cursor-pointer transition">FAQ</li>
+                    <li class="hover:text-white cursor-pointer transition">Livraison et Retours</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="uppercase tracking-widest text-xs font-bold mb-8">La Maison</h4>
+                <ul class="space-y-4 text-sm text-gray-400 font-light">
+                    <li class="hover:text-white cursor-pointer transition">Histoire de Louis Vuitton</li>
+                    <li class="hover:text-white cursor-pointer transition">Développement Durable</li>
+                    <li class="hover:text-white cursor-pointer transition">Carrières</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="uppercase tracking-widest text-xs font-bold mb-8">Newsletter</h4>
+                <p class="text-sm text-gray-400 mb-6 leading-relaxed">Soyez le premier informé des prochaines collections.</p>
+                <div class="flex border-b border-gray-600 focus-within:border-white transition">
+                    <input type="email" placeholder="Votre adresse e-mail" class="bg-transparent py-2 w-full focus:outline-none text-sm">
+                    <button class="uppercase text-[10px] tracking-widest">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 text-center text-[9px] tracking-[0.3em] text-gray-600 uppercase">
+            © Louis Vuitton Malletier - Mentions Légales
+        </div>
+    </footer>
+
+    <script>
+        const state = {
+            currentPage: 'home'
+        };
+
+        const catalog = {
+            home: {
+                hero: "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                featured: "https://images.pexels.com/photos/1036856/pexels-photo-1036856.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            femme: [
+                { id: 101, name: "Sac Capucines MM", price: "6 500 €", img: "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { id: 102, name: "Portefeuille Sarah", price: "615 €", img: "https://images.pexels.com/photos/932401/pexels-photo-932401.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { id: 103, name: "Mocassin Academy", price: "950 €", img: "https://images.pexels.com/photos/206434/pexels-photo-206434.jpeg?auto=compress&cs=tinysrgb&w=600" }
+            ],
+            homme: [
+                { id: 201, name: "Keepall Bandoulière 50", price: "2 100 €", img: "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { id: 202, name: "Baskets LV Trainer", price: "1 100 €", img: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { id: 203, name: "Lunettes Cyclone", price: "640 €", img: "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=600" }
+            ]
+        };
+
+        function navigateTo(page) {
+            state.currentPage = page;
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Fonction pour gérer les erreurs d'images
+        function handleImgError(img, name) {
+            img.onerror = null;
+            img.parentElement.innerHTML = `
+                <div class="w-full h-full flex flex-col items-center justify-center bg-gray-100 text-gray-400 p-4 text-center">
+                    <i class="fa-solid fa-image mb-2 text-2xl"></i>
+                    <span class="text-[10px] uppercase tracking-widest">${name}</span>
+                </div>
+            `;
+        }
+
+        function render() {
+            const container = document.getElementById('app-content');
+            
+            if (state.currentPage === 'home') {
+                container.innerHTML = `
+                    <section class="relative h-[85vh] overflow-hidden flex items-center justify-center">
+                        <img src="${catalog.home.hero}" class="hero-zoom absolute inset-0 w-full h-full object-cover" 
+                             alt="Collection Louis Vuitton" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <div class="relative text-center text-white fade-in px-4">
+                            <h2 class="text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight">L'Héritage du Voyage</h2>
+                            <button onclick="navigateTo('femme')" class="bg-white text-black px-12 py-4 uppercase text-[10px] tracking-[0.3em] font-bold hover:bg-black hover:text-white transition-all duration-500">
+                                Explorer la collection
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="max-w-6xl mx-auto py-24 px-6 text-center">
+                        <span class="uppercase tracking-[0.5em] text-[10px] text-gray-400 mb-6 block">Savoir-Faire</span>
+                        <h3 class="text-4xl md:text-5xl mb-10 italic">L'Art de la Malle</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-left">
+                            <div class="product-img-container aspect-[4/5]">
+                                <img src="${catalog.home.featured}" class="w-full h-full object-cover product-img" alt="Focus">
+                            </div>
+                            <div class="space-y-6">
+                                <p class="text-lg font-light leading-relaxed">
+                                    Plus qu'un simple bagage, chaque création Louis Vuitton est le fruit d'une quête incessante de perfection. Nos ateliers allient traditions séculaires et innovation contemporaine.
+                                </p>
+                                <button onclick="navigateTo('homme')" class="border-b border-black pb-1 uppercase text-[10px] tracking-widest font-bold">En savoir plus</button>
+                            </div>
+                        </div>
+                    </section>
+                `;
+            } else {
+                const list = catalog[state.currentPage];
+                container.innerHTML = `
+                    <div class="max-w-[1400px] mx-auto py-16 px-6 fade-in">
+                        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                            <div>
+                                <h2 class="text-5xl md:text-6xl capitalize mb-2">${state.currentPage}</h2>
+                                <p class="text-gray-400 text-xs tracking-widest uppercase font-light">Une sélection exclusive de pièces intemporelles</p>
+                            </div>
+                            <div class="flex space-x-10 text-[10px] tracking-[0.2em] uppercase font-bold border-b border-black/10 pb-2">
+                                <span class="cursor-pointer hover:opacity-50">Trier</span>
+                                <span class="cursor-pointer hover:opacity-50">Filtrer</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
+                            ${list.map(p => `
+                                <div class="product-card group cursor-pointer">
+                                    <div class="product-img-container aspect-[4/5] mb-6">
+                                        <img src="${p.img}" alt="${p.name}" 
+                                             class="w-full h-full object-cover product-img"
+                                             onerror="handleImgError(this, '${p.name}')">
+                                    </div>
+                                    <div class="text-center">
+                                        <h4 class="text-[11px] uppercase tracking-[0.2em] mb-2">${p.name}</h4>
+                                        <p class="text-sm font-semibold">${p.price}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        window.onload = render;
+    </script>
+</body>
+</html>
