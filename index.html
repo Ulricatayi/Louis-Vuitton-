@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louis Vuitton </title>
-    <!-- Utilisation de Tailwind CSS via CDN pour un style rapide et moderne -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Polices Google : Playfair Display pour le luxe (Serif) et Lato pour le texte (Sans-serif) -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,16 +39,13 @@
 </head>
 <body class="antialiased overflow-x-hidden">
 
-    <!-- Bannière d'annonce supérieure -->
     <div class="bg-black text-white text-xs text-center py-2 tracking-widest uppercase font-light">
         Livraison offerte pour toute commande
     </div>
 
-    <!-- En-tête de navigation -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Menu Hamburger (Mobile) & Navigation Gauche (Desktop) -->
                 <div class="flex-1 flex items-center">
                     <button class="md:hidden p-2 text-gray-600 hover:text-black">
                         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -62,14 +58,12 @@
                     </nav>
                 </div>
 
-                <!-- Logo Central -->
                 <div class="flex-shrink-0 flex items-center justify-center">
                     <a href="#" class="font-serif text-3xl font-bold tracking-widest uppercase">
                         Louis Vuitton
                     </a>
                 </div>
 
-                <!-- Icônes Droite -->
                 <div class="flex-1 flex items-center justify-end space-x-4 md:space-x-6 text-gray-600">
                     <button class="hover:text-black transition-colors"><i data-lucide="search" class="w-5 h-5"></i></button>
                     <button class="hidden md:block hover:text-black transition-colors"><i data-lucide="user" class="w-5 h-5"></i></button>
@@ -80,7 +74,6 @@
     </header>
 
     <main>
-        <!-- Section Héros : Grande image d'impact -->
         <section class="relative w-full h-[80vh] md:h-[90vh] overflow-hidden">
             <img src="https://loremflickr.com/1920/1080/fashion,luxury?lock=101" 
                  alt="" 
@@ -95,7 +88,6 @@
             </div>
         </section>
 
-        <!-- Section Catégories / Galeries de produits -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
             <h2 class="text-3xl text-center mb-12">L'Univers de la Maison</h2>
             
@@ -109,8 +101,7 @@
                         <h3 class="text-xl font-medium">Sacs Iconiques</h3>
                     </div>
                 </a>
-                
-                <!-- Carte Catégorie 2 -->
+
                 <a href="#" class="group block relative overflow-hidden h-[400px]">
                     <img src="https://loremflickr.com/800/1000/luxury,watch?lock=103" 
                          alt="" 
@@ -120,7 +111,6 @@
                     </div>
                 </a>
 
-                <!-- Carte Catégorie 3 -->
                 <a href="#" class="group block relative overflow-hidden h-[400px]">
                     <img src="https://loremflickr.com/800/1000/perfume?lock=104" 
                          alt="" 
@@ -130,7 +120,6 @@
                     </div>
                 </a>
 
-                <!-- Carte Catégorie 4 -->
                 <a href="#" class="group block relative overflow-hidden h-[400px]">
                     <img src="https://loremflickr.com/800/1000/fashion,model?lock=105" 
                          alt="" 
@@ -142,7 +131,6 @@
             </div>
         </section>
 
-        <!-- Section Mosaïque (Boutique) -->
         <section class="bg-[#f6f5f3] py-16 md:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-end mb-10">
@@ -150,10 +138,8 @@
                     <a href="#" class="text-sm uppercase tracking-wider underline underline-offset-4 hover:text-gray-500 transition-colors hidden sm:block">Voir tout</a>
                 </div>
 
-                <!-- Grille de produits -->
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12">
-                    
-                    <!-- Produit 1 -->
+
                     <div class="group cursor-pointer">
                         <div class="relative overflow-hidden mb-4 bg-white aspect-[3/4]">
                             <img src="https://loremflickr.com/600/800/handbag?lock=1" 
@@ -165,7 +151,6 @@
                         <p class="text-sm font-medium text-gray-900 mt-2">1 500 €</p>
                     </div>
 
-                    <!-- Produit 2 -->
                     <div class="group cursor-pointer">
                         <div class="relative overflow-hidden mb-4 bg-white aspect-[3/4]">
                             <img src="https://loremflickr.com/600/800/handbag?lock=2" 
@@ -177,7 +162,6 @@
                         <p class="text-sm font-medium text-gray-900 mt-2">3 500 €</p>
                     </div>
 
-                    <!-- Produit 3 -->
                     <div class="group cursor-pointer">
                         <div class="relative overflow-hidden mb-4 bg-white aspect-[3/4]">
                             <img src="https://loremflickr.com/600/800/highheels?lock=3" 
@@ -189,7 +173,6 @@
                         <p class="text-sm font-medium text-gray-900 mt-2">850 €</p>
                     </div>
 
-                    <!-- Produit 4 -->
                     <div class="group cursor-pointer">
                         <div class="relative overflow-hidden mb-4 bg-white aspect-[3/4]">
                             <img src="https://loremflickr.com/600/800/menshoes?lock=4" 
@@ -201,7 +184,6 @@
                         <p class="text-sm font-medium text-gray-900 mt-2">920 €</p>
                     </div>
 
-                     <!-- Produit 5 -->
                      <div class="group cursor-pointer">
                         <div class="relative overflow-hidden mb-4 bg-white aspect-[3/4]">
                             <img src="https://loremflickr.com/600/800/necklace?lock=5" 
@@ -213,7 +195,6 @@
                         <p class="text-sm font-medium text-gray-900 mt-2">2 450 €</p>
                     </div>
 
-                    <!-- Produit 6 -->
                     <div class="group cursor-pointer">
                         <div class="relative overflow-hidden mb-4 bg-white aspect-[3/4]">
                             <img src="https://loremflickr.com/600/800/sunglasses?lock=6" 
@@ -225,7 +206,6 @@
                         <p class="text-sm font-medium text-gray-900 mt-2">690 €</p>
                     </div>
 
-                    <!-- Produit 7 -->
                     <div class="group cursor-pointer">
                         <div class="relative overflow-hidden mb-4 bg-white aspect-[3/4]">
                             <img src="https://loremflickr.com/600/800/leatherjacket?lock=7" 
@@ -237,7 +217,6 @@
                         <p class="text-sm font-medium text-gray-900 mt-2">4 800 €</p>
                     </div>
 
-                    <!-- Produit 8 -->
                     <div class="group cursor-pointer">
                         <div class="relative overflow-hidden mb-4 bg-white aspect-[3/4]">
                             <img src="https://loremflickr.com/600/800/watch?lock=8" 
@@ -257,7 +236,6 @@
             </div>
         </section>
 
-        <!-- Section Éditorial / Histoire -->
         <section class="flex flex-col md:flex-row w-full h-auto md:h-[70vh]">
             <div class="w-full md:w-1/2 h-[50vh] md:h-full">
                 <img src="https://loremflickr.com/1000/1000/suitcase?lock=106" 
@@ -277,12 +255,10 @@
         </section>
     </main>
 
-    <!-- Pied de page -->
     <footer class="bg-[#19110b] text-[#f9f8f6] py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                
-                <!-- Colonne 1 -->
+
                 <div>
                     <h3 class="uppercase tracking-widest text-xs font-semibold mb-6">Service Client</h3>
                     <ul class="space-y-4 text-sm font-light text-gray-400">
@@ -293,7 +269,6 @@
                     </ul>
                 </div>
 
-                <!-- Colonne 2 -->
                 <div>
                     <h3 class="uppercase tracking-widest text-xs font-semibold mb-6">La Maison</h3>
                     <ul class="space-y-4 text-sm font-light text-gray-400">
@@ -304,7 +279,6 @@
                     </ul>
                 </div>
 
-                <!-- Colonne 3 -->
                 <div class="lg:col-span-2">
                     <h3 class="uppercase tracking-widest text-xs font-semibold mb-6">Abonnez-vous à notre newsletter</h3>
                     <p class="text-sm font-light text-gray-400 mb-4">Recevez les dernières actualités de la Maison et découvrez nos nouvelles collections.</p>
@@ -326,7 +300,6 @@
         </div>
     </footer>
 
-    <!-- Initialisation des icônes Lucide -->
     <script>
         lucide.createIcons();
 
